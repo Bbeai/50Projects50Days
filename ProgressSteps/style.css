@@ -1,0 +1,107 @@
+/*@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
+body {
+  background: #f6f7fb;
+  font-family: "Muli", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative; /*para poner cosas dentro de ellos*/
+  margin-bottom: 35px;
+  max-width: 400px;
+  width: 400px;
+}
+
+/*agregamos estilos al div progress que servira como una linea*/
+.progress-container::before {
+  /*si usas before para que se vea lleva un content*/
+  content: "";
+  background: var(--line-border-empty);
+  position: absolute;
+  height: 4px; /*sino tiene alto o ancho no se ve*/
+  width: 100%;
+  left: 0;
+  top: 40%;
+  transform: translateY(-50);
+  z-index: -1; /*detras de los circulos*/
+  transition: 0.4s ease; /*agregar animacion cuando la linea avance de circulo en circulo*/
+}
+
+/*agregamos estilos al div progress que servira como una linea azul*/
+.container .progress {
+  background: var(--line-border-fill);
+  position: absolute;
+  height: 4px; /*sino tiene alto o ancho no se ve*/
+  width: 0%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50);
+  z-index: -1; /*detras de los circulos*/
+  transition: 0.4s ease; /*agrefar animacion cuandi la linea avance de circulo en curculo*/
+}
+
+.circle {
+  background: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  /**centrar numeros*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+}
+
+/*cuando el div tenga la clase active*/
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.89); /*el efecto sucede cuadno se clickea el boton*/
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background: var(--line-border-empty);
+  cursor: not-allowed; /*el boton no se puede precionar*/
+}
