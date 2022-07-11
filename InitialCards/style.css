@@ -73,6 +73,8 @@ body {
 
 .panel.active h3 {
   opacity: 1; /*el texto del primer panel ya se  ve*/
+  /*agregamos retraso al aparecer e titulo de laimagen*/
+  transition: opacity 0.3s ease-in 0.4s;
 }
 
 /*@media screen and (max-width: 480px) {*/
