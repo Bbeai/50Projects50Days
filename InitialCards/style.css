@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /*esta liea y las dos anteriores centran el contendio*/
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 40px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  /*ease-in efecto de relajacion de .75 segundos*/
+  transition: flex 0.7s ease-in;
+}
+
+.container .panel {
+  background-image: url("https://images.unsplash.com/photo-1556905200-279565513a2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+}
+
+.container .uno {
+  background-image: url("https://globalgrasshopper.com/wp-content/uploads/2011/03/Lacandon-Jungle-1000x749.jpg");
+}
+
+.container .dos {
+  background-image: url("https://worldofwanderlust.com/wp-content/uploads/2014/10/ferdinand-stohr-W1FIkdPAB7E-unsplash-scaled.jpg");
+}
+
+.container .tres {
+  background-image: url("https://img.traveltriangle.com/blog/wp-content/uploads/2021/11/Peaceful-Places-to-Visit-in-India.jpg");
+}
+
+.container .cuatro {
+  background-image: url("https://blog.japanwondertravel.com/wp-content/uploads/2019/09/jarrett-kow-1ZOyYPOBn7I-unsplash-1200x800.jpg");
+}
+
+.container .cinco {
+  background-image: url("https://blog.japanwondertravel.com/wp-content/uploads/2019/09/jarrett-kow-1ZOyYPOBn7I-unsplash-1200x800.jpg");
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0; /*quito textos de imagenes*/
+}
+
+.panel.active {
+  flex: 5; /*hizo que el primero panel de de la clase active
+  sea mas grande que el restoo*/
+}
+
+.panel.active h3 {
+  opacity: 1; /*el texto del primer panel ya se  ve*/
+}
+
+/*@media screen and (max-width: 480px) {*/
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  /*quitar los ultimos dos paneles*/
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
